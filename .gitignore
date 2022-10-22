@@ -1,5 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-env
+.env
 _pycache_
 
 # dependencies
@@ -23,3 +23,5 @@ _pycache_
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+ __pycache__/app.cpython-310.pyc
