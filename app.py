@@ -133,12 +133,12 @@ def signed_up():
                 # db.session.commit()
                 login_user(new_user)
                 return flask.redirect(flask.url_for("main"))
-                if password is None:
-                    # new_password = User(
-                    #     password=data["password"],
-                    # )
-                    # db.session.add(new_password)
-                    # db.session.commit()
+                # if password is None:
+                #     # new_password = User(
+                #     #     password=data["password"],
+                #     # )
+                #     # db.session.add(new_password)
+                #     # db.session.commit()
             else:
                 flask.flash("Account already exists. Please log in.")
                 return flask.redirect(flask.url_for("log_in"))
