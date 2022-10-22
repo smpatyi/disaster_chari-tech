@@ -1,8 +1,65 @@
 <html>
   <head>
-    <link rel="stylesheet" href="/static/style.css" />
+    <style>
+      body {
+				margin: 0;
+				font-family: "Lato", sans-serif;
+        color:aliceblue; 
+        text-align: center;
+				font-weight: 100;
+				background-image: url('cool-background.png');
+				background-attachment: fixed;
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				backdrop-filter: blur(4px);
+				min-height: 500px;
+			}
+      
+      .block {
+  height: 20vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#item {
+  font-size: 30px;
+  font-family: 'BioRhyme', serif;
+  width: initial;
+  height: 40px;
+  line-height: 40px;
+}
+
+
+#highlight {
+  display: inline-block;
+  position: absolute;
+  z-index: -1;
+  background-color: #ea05f2;
+  height: 80px; 
+  width: 0%;
+  transition: width 0.5s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#item:hover #highlight{
+  /* hardcoded */
+  width: 520px; 
+}
+    </style>
   </head>
   <body>
-    <h1>This is the main page.</h1>
+    <link href="https://fonts.googleapis.com/css?family=BioRhyme" rel="stylesheet">
+
+<div class="block">
+  <div id="item">
+    <div id="highlight"></div>
+    <h1>Welcome to Disaster Chari-tech.</h1>
+    <h6>
+      The one-stop shop for supporting charities for people struck by disaster.
+    </h6>
+  </div>
+</div>
   </body>
 </html>
