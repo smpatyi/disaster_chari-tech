@@ -149,9 +149,9 @@ def main():
     return flask.render_template("main.html")
 
 
-@login_manager.user_loader
-def get_user(user_id):
-    return User.query.get(int(user_id))
+# @login_manager.user_loader
+# def get_user(user_id):
+#     return User.query.get(int(user_id))
 
 
 app.run(
