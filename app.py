@@ -13,40 +13,40 @@ load_dotenv(find_dotenv())
 app = flask.Flask(__name__)
 
 # pointing flask app towards heroku database
-app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
+#app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 # Gets rid of a warning
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+#app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 # loop in order to change the config variables for the heroku app to access the database
-if app.config["SQLALCHEMY_DATABASE_URI"].startswith("postgres://"):
-    app.config["SQLALCHEMY_DATABASE_URI"] = app.config[
-        "SQLALCHEMY_DATABASE_URI"
-    ].replace("postgres://", "postgresql://")
+# if app.config["SQLALCHEMY_DATABASE_URI"].startswith("postgres://"):
+#     app.config["SQLALCHEMY_DATABASE_URI"] = app.config[
+#         "SQLALCHEMY_DATABASE_URI"
+#     ].replace("postgres://", "postgresql://")
 
 # using flask login in order to manage the users logging in to the site
 login_manager = LoginManager()
 login_manager.init_app(app)
 
 # initializing the database
-db = SQLAlchemy(app)
+#db = SQLAlchemy(app)
 # migrate = Migrate(app, db)
 
 # data model for users
-class User(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    user = db.Column(db.String(16))
-    password = db.Column(db.String(20))
+# class User(db.Model, UserMixin):
+#     id = db.Column(db.Integer, primary_key=True)
+#     user = db.Column(db.String(16))
+#     password = db.Column(db.String(20))
 
 
 # creating the database
-with app.app_context():
-    db.create_all()
+# with app.app_context():
+#     db.create_all()
 
 # app route for the main page that is what is seen first when app is opened
 @app.route("/", methods=["GET"])
 def index():
     return flask.render_template(
-        "index.html",
+        "main.html",
     )
 
 

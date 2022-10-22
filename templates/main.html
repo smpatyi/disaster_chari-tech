@@ -1,15 +1,15 @@
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
       body {
         overflow:scroll; 
 				margin: 0;
 				font-family: "Lato", sans-serif;
-        color:aliceblue; 
-        text-align: center;
+				color:aliceblue; 
+				text-align: center;
 				font-weight: 100;
-				background-image: url('cool-background.png');
+				background-image: url("../static/cool-background.jpg");
 				background-attachment: fixed;
 				background-repeat: no-repeat;
 				background-size: 100% 100%;
@@ -116,8 +116,23 @@
 
 			}
 
+			.topnav input {
+				background: none;
+				border: none;
+				float: right;
+				color: #fcf6f8;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+				font-size: 17px;
+				transition: 300ms ease;
+				font-family: "Lato", sans-serif;
+				margin: 0;
+				letter-spacing: 3px;
 
-			.topnav a:hover {
+			}
+
+			.topnav input:hover {
 				color: white;
 				border-radius: 30px;
 				border: white solid 2px;
@@ -290,12 +305,20 @@
     <h2>
 			<div class="topnav">
 				<ul>
-					<p onclick="window.location.href='RatRaceHomePage.html';" style="text-align:center" class="btn"><img src="logo.png" id="logo1" alt="logo1" style="width:140px; height:90px"></p>
+					<p onclick="window.location.href='RatRaceHomePage.html';" style="text-align:center" class="btn"><img src="../static/logo.png" id="logo1" alt="logo1" style="width:140px; height:90px"></p>
 				</ul>
-				<a href="Volunteer.html">Volunteer</a>
-				<a href="charities.html">Charities</a>
-				<a href="log_in.html">Login</a>
-				<a class="active" href="aboutUs.html">About Us</a>
+				<form method="POST" action="/volunteer" >
+					<input type="submit" name="volunteer" value = "Volunteer" />
+				</form>
+				<form method="POST" action="/charities" >
+					<input type="submit" name="charities" value = "Charities" />
+				</form>
+				<form method="POST" action="/log_in" >
+					<input type="submit" name="sign_up" value = "Sign Up" />
+				</form>
+				<form class="active" method="POST" action="/aboutUs" >
+					<input type="submit" name="about" value = "About Us" />
+				</form>
 			</div>
 		</h2>
 
