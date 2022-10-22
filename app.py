@@ -3,11 +3,16 @@ import os
 
 from flask_login import current_user, login_user, LoginManager, UserMixin
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 app = flask.Flask(__name__)
 
 # Gets rid of a warning
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+# linking postgres database to flask app
+app.config[
+    "SQLALCHEMY_DATABASE_URI"
+] = "postgresql://postgres:postgres@localhost:5342/db"
 
 # using flask login in order to manage the users logging in to the site
 login_manager = LoginManager()
@@ -15,6 +20,7 @@ login_manager.init_app(app)
 
 # initializing the database
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 # data model for users
 class User(db.Model, UserMixin):
@@ -24,7 +30,7 @@ class User(db.Model, UserMixin):
 
 
 # creating the database
-db.create_all()
+# db.create_all()
 
 # app route for the main page that is what is seen first when app is opened
 @app.route("/", methods=["GET"])
@@ -87,6 +93,55 @@ def logged_in():
                     else:
                         login_user(user)
                         return flask.redirect(flask.url_for("main"))
+
+
+# app route for displaying the forms and input info on the sign up page
+@app.route("/sign_up", methods=["GET", "POST"])
+def sign_up():
+    return flask.render_template("sign_up.html")
+
+
+# app route for handling database entry creation for sign up
+@app.route("/signed_up")
+def signed_up():
+    if flask.request.method == "POST":
+        data = flask.request.form
+        user_name = data["user_name"]
+        password = data["password"]
+
+        # error handling for arbitrary length of inputted username and password
+        if len(user_name) > 16:
+            flask.flash("User name incorrect. Please enter the correct one.")
+            return flask.redirect(flask.url_for("log_in"))
+        if len(password) > 20:
+            flask.flash("Password incorrect. Please enter the correct one.")
+            return flask.redirect(flask.url_for("log_in"))
+
+        # check if it is a unique username that already exists in database
+        if "user_name" in data:
+            user = User.query.filter_by(user=data["user_name"]).first()
+            if user is None:
+                new_user = User(
+                    user=data["user_name"],
+                )
+                db.session.add(new_user)
+                db.session.commit()
+                login_user(new_user)
+                return flask.redirect(flask.url_for("main"))
+                if password is None:
+                    new_password = User(
+                        password=data["password"],
+                    )
+                    db.session.add(new_password)
+                    db.session.commit()
+            else:
+                flask.flash("Account already exists. Please log in.")
+                return flask.redirect(flask.url_for("log_in"))
+
+
+@app.route("/main", methods=["GET", "POST"])
+def main():
+    return flask.render_template("main.html")
 
 
 @login_manager.user_loader
