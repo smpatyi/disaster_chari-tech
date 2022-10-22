@@ -1,0 +1,75 @@
+<html>
+<head>
+    <title>Charities</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Lato", sans-serif;
+            color:aliceblue;
+            text-align: center;
+            font-weight: 100;
+            background-image: url('cool-background.png');
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            backdrop-filter: blur(4px);
+            min-height: 500px;
+        }
+
+        .block {
+            height: 20vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #item {
+            font-size: 30px;
+            font-family: 'BioRhyme', serif;
+            width: initial;
+            height: 40px;
+            line-height: 40px;
+        }
+
+
+        #highlight {
+            display: inline-block;
+            position: absolute;
+            z-index: -1;
+            background-color: #ff58c4;
+            height: 80px;
+            width: 0%;
+            transition: width 0.5s;
+            transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        #item:hover #highlight{
+            /* hardcoded */
+            width: 520px;
+        }
+    </style>
+</head>
+<body>
+<link href="https://fonts.googleapis.com/css?family=BioRhyme" rel="stylesheet">
+
+<div class="block">
+    <div id="item">
+        <div id="highlight"></div>
+        <h1>Charities</h1>
+
+    </div>
+</div>
+
+<div class="charityCard">
+    <!--img src="img_avatar.png" alt="Avatar" style="width:100%"-->
+    <div class="container">
+        <h4><b>Charity 1</b></h4>
+        <p>Food</p>
+
+    </div>
+
+</div>
+
+</body>
+</html>
