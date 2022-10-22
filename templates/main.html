@@ -115,8 +115,23 @@
 
 			}
 
+			.topnav input {
+				background: none;
+				border: none;
+				float: right;
+				color: #fcf6f8;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+				font-size: 17px;
+				transition: 300ms ease;
+				font-family: "Lato", sans-serif;
+				margin: 0;
+				letter-spacing: 3px;
 
-			.topnav a:hover {
+			}
+
+			.topnav input:hover {
 				color: white;
 				border-radius: 30px;
 				border: white solid 2px;
@@ -225,6 +240,53 @@
 				background-color: lightblue;
 			}
 
+			.my-button{
+   	 	border-radius: 20px;
+    	border: 6px solid #ff58c4;
+		text-align: center; 
+		position:absolute; top:800px; left:230px; 
+    	padding: 80px 380px;
+   	 	background: #f3f0e0;
+   	 	font-size: 2em;
+    	cursor: pointer;
+	}
+
+	.my-button:hover {
+				background-color: lightblue;
+			}
+
+			.my-button1{
+   	 	border-radius: 20px;
+    	border: 6px solid #ff58c4;
+		text-align: center; 
+		position:absolute; top:1050px; left:230px; 
+    	padding: 80px 370px;
+   	 	background: #f3f0e0;
+   	 	font-size: 2em;
+    	cursor: pointer;
+	}
+
+	.my-button1:hover {
+				background-color: lightblue;
+			}
+
+
+			.my-button2{
+   	 	border-radius: 20px;
+    	border: 6px solid #ff58c4;
+		text-align: center; 
+		position:absolute; top:1300px; left:230px; 
+    	padding: 80px 355px;
+   	 	background: #f3f0e0;
+   	 	font-size: 2em;
+    	cursor: pointer;
+	}
+
+	.my-button2:hover {
+				background-color: lightblue;
+			}
+
+
 
 
 
@@ -238,10 +300,18 @@
 				<ul>
 					<p onclick="window.location.href='RatRaceHomePage.html';" style="text-align:center" class="btn"><img src="../static/logo.png" id="logo1" alt="logo1" style="width:140px; height:90px"></p>
 				</ul>
-				<a href="Volunteer.html">Volunteer</a>
-				<a href="charities.html">Charities</a>
-				<a href="log_in.html">Login</a>
-				<a class="active" href="aboutUs.html">About Us</a>
+				<form method="POST" action="/volunteer" >
+					<input type="submit" name="volunteer" value = "Volunteer" />
+				</form>
+				<form method="POST" action="/charities" >
+					<input type="submit" name="charities" value = "Charities" />
+				</form>
+				<form method="POST" action="/log_in" >
+					<input type="submit" name="sign_up" value = "Sign Up" />
+				</form>
+				<form class="active" method="POST" action="/aboutUs" >
+					<input type="submit" name="about" value = "About Us" />
+				</form>
 			</div>
 		</h2>
 
@@ -257,5 +327,21 @@
     <h6>The one-stop shop for supporting charities for people struck by disaster.</h6>
   </div>
 </div>
+
+<button class="my-button">Hurricane Ian: </button>
+
+<button class="my-button1">Brazil Wildfires: </button>
+
+<button class="my-button2">Flint, Water Crisis: </button>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
   </body>
 </html>
