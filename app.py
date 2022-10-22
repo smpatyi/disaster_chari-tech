@@ -39,7 +39,8 @@ class User(db.Model, UserMixin):
 
 
 # creating the database
-db.create_all()
+with app.app_context():
+    db.create_all()
 
 # app route for the main page that is what is seen first when app is opened
 @app.route("/", methods=["GET"])
