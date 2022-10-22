@@ -8,34 +8,34 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = flask.Flask(__name__)
 
-# pointing flask app towards heroku database
-app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
-# Gets rid of a warning
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+# # pointing flask app towards heroku database
+# app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
+# # Gets rid of a warning
+# app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-# loop in order to change the config variables for the heroku app to access the database
-if app.config["SQLALCHEMY_DATABASE_URI"].startswith("postgres://"):
-    app.config["SQLALCHEMY_DATABASE_URI"] = app.config[
-        "SQLALCHEMY_DATABASE_URI"
-    ].replace("postgres://", "postgresql://")
+# # loop in order to change the config variables for the heroku app to access the database
+# if app.config["SQLALCHEMY_DATABASE_URI"].startswith("postgres://"):
+#     app.config["SQLALCHEMY_DATABASE_URI"] = app.config[
+#         "SQLALCHEMY_DATABASE_URI"
+#     ].replace("postgres://", "postgresql://")
 
-# using flask login in order to manage the users logging in to the site
-login_manager = LoginManager()
-login_manager.init_app(app)
+# # using flask login in order to manage the users logging in to the site
+# login_manager = LoginManager()
+# login_manager.init_app(app)
 
-# initializing the database
-db = SQLAlchemy(app)
-# migrate = Migrate(app, db)
+# # initializing the database
+# db = SQLAlchemy(app)
+# # migrate = Migrate(app, db)
 
-# data model for users
-class User(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    user = db.Column(db.String(16))
-    password = db.Column(db.String(20))
+# # data model for users
+# class User(db.Model, UserMixin):
+#     id = db.Column(db.Integer, primary_key=True)
+#     user = db.Column(db.String(16))
+#     password = db.Column(db.String(20))
 
 
-# creating the database
-db.create_all()
+# # creating the database
+# db.create_all()
 
 # app route for the main page that is what is seen first when app is opened
 @app.route("/", methods=["GET"])
@@ -83,7 +83,7 @@ def logged_in():
 
         # check if it is a unique username that already exists in database
         if "user_name" in data:
-            user = User.query.filter_by(user=data["user_name"]).first()
+            # user = User.query.filter_by(user=data["user_name"]).first()
             if user is None:
                 flask.flash(
                     "No account found associated with that username. Please sign up."
@@ -91,7 +91,7 @@ def logged_in():
                 return flask.redirect(flask.url_for("sign_up"))
             else:
                 if "password" in data:
-                    password = User.query.filter_by(password=data["password"]).first()
+                    # password = User.query.filter_by(password=data["password"]).first()
                     if password is None:
                         flask.flash("Incorrect password. Try again.")
                         return flask.redirect(flask.url_for("log_in"))
@@ -124,21 +124,21 @@ def signed_up():
 
         # check if it is a unique username that already exists in database
         if "user_name" in data:
-            user = User.query.filter_by(user=data["user_name"]).first()
+            # user = User.query.filter_by(user=data["user_name"]).first()
             if user is None:
-                new_user = User(
-                    user=data["user_name"],
-                )
-                db.session.add(new_user)
-                db.session.commit()
+                # new_user = User(
+                #     user=data["user_name"],
+                # )
+                # db.session.add(new_user)
+                # db.session.commit()
                 login_user(new_user)
                 return flask.redirect(flask.url_for("main"))
                 if password is None:
-                    new_password = User(
-                        password=data["password"],
-                    )
-                    db.session.add(new_password)
-                    db.session.commit()
+                    # new_password = User(
+                    #     password=data["password"],
+                    # )
+                    # db.session.add(new_password)
+                    # db.session.commit()
             else:
                 flask.flash("Account already exists. Please log in.")
                 return flask.redirect(flask.url_for("log_in"))
