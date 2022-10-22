@@ -65,10 +65,11 @@ def welcome():
 # displays log in page with input forms
 @app.route("/log_in", methods=["GET", "POST"])
 def log_in():
-
     return flask.render_template(
         "log_in.html",
     )
+
+
 
 
 @app.route("/logged_in", methods=["GET", "POST"])
@@ -152,6 +153,18 @@ def signed_up():
 @app.route("/main", methods=["GET", "POST"])
 def main():
     return flask.render_template("main.html")
+
+@app.route("/volunteer", methods=["GET", "POST"])
+def volunteer():
+    return flask.render_template("Volunteer.html")
+
+@app.route("/charities", methods=["GET", "POST"])
+def charities():
+    return flask.render_template("charities.html")
+
+@app.route("/aboutUs", methods=["GET", "POST"])
+def about():
+    return flask.render_template("aboutUs.html")
 
 
 @login_manager.user_loader
