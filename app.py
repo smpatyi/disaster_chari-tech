@@ -3,16 +3,21 @@ import os
 
 from flask_login import current_user, login_user, LoginManager, UserMixin
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
+
+# from flask_migrate import Migrate
 
 app = flask.Flask(__name__)
 
+# pointing flask app towards heroku database
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 # Gets rid of a warning
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-# linking postgres database to flask app
-app.config[
-    "SQLALCHEMY_DATABASE_URI"
-] = "postgresql://postgres:postgres@localhost:5342/db"
+
+# loop in order to change the config variables for the heroku app to access the database
+if app.config["SQLALCHEMY_DATABASE_URI"].startswith("postgres://"):
+    app.config["SQLALCHEMY_DATABASE_URI"] = app.config[
+        "SQLALCHEMY_DATABASE_URI"
+    ].replace("postgres://", "postgresql://")
 
 # using flask login in order to manage the users logging in to the site
 login_manager = LoginManager()
@@ -20,7 +25,7 @@ login_manager.init_app(app)
 
 # initializing the database
 db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+# migrate = Migrate(app, db)
 
 # data model for users
 class User(db.Model, UserMixin):
@@ -30,7 +35,7 @@ class User(db.Model, UserMixin):
 
 
 # creating the database
-# db.create_all()
+db.create_all()
 
 # app route for the main page that is what is seen first when app is opened
 @app.route("/", methods=["GET"])
