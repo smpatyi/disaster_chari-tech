@@ -3,9 +3,16 @@
     <link rel="stylesheet" href="../static/style.css" />
   </head>
   <body>
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <ul class="flashes">
+      {% for message in messages %}
+      <b>{{message}}</b>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
     <h1 class="text-sign">Sign Up</h1>
     <p class="text-sign" >Please enter a user name and password.</p>
-    <form method="POST" action="/sign_up">
+    <form method="POST" action="/signed_up">
       Username: 
       <input class="sign-input" type="text" name="user_name" />
       <br>
@@ -14,12 +21,5 @@
       <br>
       <input class="sign-button" type="submit" value="Sign Up" />
     </form>
-    {% with messages = get_flashed_messages() %} {% if messages %}
-    <ul class="flashes">
-      {% for message in messages %}
-      <b>{{message}}</b>
-      {% endfor %}
-    </ul>
-    {% endif %} {% endwith %}
   </body>
 </html>

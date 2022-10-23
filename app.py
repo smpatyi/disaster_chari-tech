@@ -127,7 +127,7 @@ def logged_in():
 
 
 # app route for displaying the forms and input info on the sign up page
-@app.route("/sign_up", methods=["GET", "POST"])
+@app.route("/sign_up", methods=["GET"])
 def sign_up():
     return flask.render_template("sign_up.html")
 
