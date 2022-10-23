@@ -1,4 +1,36 @@
 body {
     background-image: url("cool-background.png");
     background-color: #cccccc;
-   }
+    color:aliceblue;
+    text-align: center;
+    margin: 80px;
+    font-family: BioRhyme;
+    text-emphasis-color: cyan;
+}
+
+input {
+    border-radius: 2px;
+    border: deeppink;
+    font-size: large;
+    margin: 10px;
+
+}
+
+.button {
+    font-family: BioRhyme;
+    font-size: large;
+    padding: 10px 25px 10px 25px;
+    border-radius: 5px;
+    background-color: deeppink;
+    color: white;
+}
+
+.small-button {
+    font-family: BioRhyme;
+    margin-top: 30px;
+    padding: 3px 5px 3px 5px;
+    border-radius: 5px;
+    background-color: deeppink;
+    color:white;
+    font-size: smaller;
+}
