@@ -12,7 +12,7 @@ from flask_login import (
     logout_user,
     current_user,
 )
-from flask_sqlalchemy import SQLAlchemy=
+from flask_sqlalchemy import SQLAlchemy
 from dotenv import find_dotenv, load_dotenv
 from passlib.hash import sha256_crypt
 
