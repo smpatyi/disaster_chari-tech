@@ -118,7 +118,7 @@ def logged_in():
                 .password,
             ):
                 login_user(user)
-                return flask.redirect("/main")
+                return flask.redirect(flask.url_for("main"))
             else:
                 flask.flash("No account found with that username. Please sign up.")
                 return flask.redirect(flask.url_for("sign_up"))
