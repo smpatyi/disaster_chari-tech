@@ -66,11 +66,11 @@ transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 
 #item:hover #highlight{
 /* hardcoded */
-width: 400px; 
+width: 500px; 
 }
 #item:hover #highlight1{
 /* hardcoded */
-width: 430px; 
+width: 500px; 
 }
 
 .header {

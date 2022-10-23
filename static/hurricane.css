@@ -63,7 +63,7 @@ background-color: #58b1ff;
 opacity: 75%;
 height: 50px; 
 transition: width 0.5s;
-width: -10vh;
+width: 0vh;
 transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
@@ -257,7 +257,8 @@ width: 1250px;
     border: 6px solid #ff58c4;
     text-align: center;
     margin: 60px auto 0 auto;
-    padding: 50px 300px;
+    padding: 50px auto;
+    width: 1000px;
     background-color: bisque;
     background-repeat: no-repeat;
     font-size: 2em;
