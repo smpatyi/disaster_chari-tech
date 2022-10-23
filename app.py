@@ -22,16 +22,16 @@ load_dotenv(find_dotenv())
 
 #app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 app.secret_key = os.getenv("SECRET_KEY")
- # pointing flask app towards heroku database
+# pointing flask app towards heroku database
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
- # Gets rid of a warning
+# Gets rid of a warning
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 # loop in order to change the config variables for the heroku app to access the database
 if app.config["SQLALCHEMY_DATABASE_URI"].startswith("postgres://"):
-     app.config["SQLALCHEMY_DATABASE_URI"] = app.config[
-         "SQLALCHEMY_DATABASE_URI"
-     ].replace("postgres://", "postgresql://")
+    app.config["SQLALCHEMY_DATABASE_URI"] = app.config[
+        "SQLALCHEMY_DATABASE_URI"
+    ].replace("postgres://", "postgresql://")
 
 # initializing the database
 db = SQLAlchemy(app)
@@ -52,7 +52,7 @@ class UserLogin(db.Model, UserMixin):
          return "<User %r>" % self.user
 
      def get_username(self):
-         return self.user
+        return self.user
 
 
 # uses login manager to help handle user input
