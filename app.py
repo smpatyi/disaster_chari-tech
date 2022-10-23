@@ -16,13 +16,11 @@ from flask_sqlalchemy import SQLAlchemy
 from dotenv import find_dotenv, load_dotenv
 from passlib.hash import sha256_crypt
 
-#from flask_migrate import Migrate
-
 app = flask.Flask(__name__)
 
 load_dotenv(find_dotenv())
 
-app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+#app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 app.secret_key = os.getenv("SECRET_KEY")
  # pointing flask app towards heroku database
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
