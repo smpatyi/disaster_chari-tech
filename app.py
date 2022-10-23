@@ -13,28 +13,28 @@ from flask_login import (
     current_user,
 )
 from flask_sqlalchemy import SQLAlchemy
-#from sqlalchemy import create_engine
+from sqlalchemy import create_engine
 from dotenv import find_dotenv, load_dotenv
-#from passlib.hash import sha256_crypt
+from passlib.hash import sha256_crypt
 
 app = flask.Flask(__name__)
 
 load_dotenv(find_dotenv())
 
-# app.secret_key = os.getenv("SECRET_KEY")
-# # pointing flask app towards heroku database
-# app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
-# # Gets rid of a warning
-# app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.secret_key = os.getenv("SECRET_KEY")
+# pointing flask app towards heroku database
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
+# Gets rid of a warning
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-# # loop in order to change the config variables for the heroku app to access the database
-# if app.config["SQLALCHEMY_DATABASE_URI"].startswith("postgres://"):
-#     app.config["SQLALCHEMY_DATABASE_URI"] = app.config[
-#         "SQLALCHEMY_DATABASE_URI"
-#     ].replace("postgres://", "postgresql://")
+# loop in order to change the config variables for the heroku app to access the database
+if app.config["SQLALCHEMY_DATABASE_URI"].startswith("postgres://"):
+    app.config["SQLALCHEMY_DATABASE_URI"] = app.config[
+        "SQLALCHEMY_DATABASE_URI"
+    ].replace("postgres://", "postgresql://")
 
 # initializing the database
-#db = SQLAlchemy(app)
+db = SQLAlchemy(app)
 
 # using flask login in order to manage the users logging in to the site
 login_manager = LoginManager()
@@ -43,16 +43,16 @@ login_manager.login_view = "main"
 
 
 # data model for users
-# class UserLogin(db.Model, UserMixin):
-#     id = db.Column(db.Integer, primary_key=True)
-#     user = db.Column(db.String(20), nullable=False)
-#     password = db.Column(db.String(200), nullable=False)
+class UserLogin(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    user = db.Column(db.String(20), nullable=False)
+    password = db.Column(db.String(200), nullable=False)
 
-#     def __repr__(self):
-#         return "<User %r>" % self.user
+    def __repr__(self):
+        return "<User %r>" % self.user
 
-#     def get_username(self):
-#         return self.user
+    def get_username(self):
+        return self.user
 
 
 # uses login manager to help handle user input
@@ -62,8 +62,8 @@ def load_user(user_id):
 
 
 # creating the database
-# with app.app_context():
-#       db.create_all()
+with app.app_context():
+      db.create_all()
 
 # app route for the main page that is what is seen first when app is opened
 @app.route("/", methods=["GET"])
