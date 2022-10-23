@@ -25,15 +25,15 @@ load_dotenv(find_dotenv())
 # app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 app.secret_key = os.getenv("SECRET_KEY")
 # pointing flask app towards heroku database
-#app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 # Gets rid of a warning
-#app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 # loop in order to change the config variables for the heroku app to access the database
-# if app.config["SQLALCHEMY_DATABASE_URI"].startswith("postgres://"):
-#     app.config["SQLALCHEMY_DATABASE_URI"] = app.config[
-#         "SQLALCHEMY_DATABASE_URI"
-#     ].replace("postgres://", "postgresql://")
+if app.config["SQLALCHEMY_DATABASE_URI"].startswith("postgres://"):
+    app.config["SQLALCHEMY_DATABASE_URI"] = app.config[
+        "SQLALCHEMY_DATABASE_URI"
+    ].replace("postgres://", "postgresql://")
 
 # initializing the database
 #db = SQLAlchemy(app)
@@ -64,12 +64,12 @@ def load_user(user_id):
 
 
 # creating the database
-# with app.app_context():
-#     db.create_all()
+with app.app_context():
+    db.create_all()
 
 # app route for the main page that is what is seen first when app is opened
 @app.route("/", methods=["GET"])
-def index():
+def main():
     return flask.render_template(
         "main.html",
     )
@@ -112,7 +112,7 @@ def logged_in():
         if user:
             if sha256_crypt.verify(
                 flask.request.form.get("password"),
-                UserLogin.query.filter_by(user_name=flask.request.form.get("user_name"))
+                UserLogin.query.filter_by(user=flask.request.form.get("user_name"))
                 .first()
                 .password,
             ):
@@ -164,10 +164,6 @@ def signed_up():
                 flask.flash("Account already exists. Please log in.")
                 return flask.redirect(flask.url_for("log_in"))
 
-
-@app.route("/main", methods=["GET"])
-def main():
-    return flask.render_template("main.html")
 
 @app.route("/volunteer", methods=["GET", "POST"])
 def volunteer():
