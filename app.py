@@ -69,7 +69,7 @@ login_manager.login_view = "index"
 
 # app route for the main page that is what is seen first when app is opened
 @app.route("/", methods=["GET"])
-def index():
+def main():
     return flask.render_template(
         "main.html",
     )
@@ -112,7 +112,7 @@ def logged_in():
         if user:
             if sha256_crypt.verify(
                 flask.request.form.get("password"),
-                UserLogin.query.filter_by(user_name=flask.request.form.get("user_name"))
+                UserLogin.query.filter_by(user=flask.request.form.get("user_name"))
                 .first()
                 .password,
             ):
