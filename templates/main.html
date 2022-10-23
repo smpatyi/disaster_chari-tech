@@ -17,52 +17,63 @@
 			}
       
       .block {
+		justify-content: center;
   height: 50vh;
   width: 100vw;
   display: flex;
-  justify-content: center;
   align-items: center;
+
 }
 
 #item {
+	display:block;
+	margin: auto;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
   font-size: 30px;
   font-family: 'BioRhyme', serif;
-  width: initial;
   height: 40px;
   line-height: 40px;
 }
 
 
 #highlight {
-  display: inline-block;
-  position:absolute; left:195px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	position: absolute;
   z-index: -1;
   background-color: #ff58c4;
+  opacity: 75%;
   height: 100px; 
-  width: 0vh;
   transition: width 0.5s;
+  width: 0vh;
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 
 #highlight1 {
-  display: inline-block;
-  position:absolute; left:270px;
+	display: block;
+	margin-left:auto;
+	margin-right: auto;
+	position:absolute;
   z-index: -1;
   background-color: #58b1ff;
+  opacity: 75%;
   height: 50px; 
-  width: 0vh;
   transition: width 0.5s;
+  width: 0vh;
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 #item:hover #highlight{
   /* hardcoded */
-  width: 1050px; 
+  width: 1010px; 
 }
 #item:hover #highlight1{
   /* hardcoded */
-  width: 880px; 
+  width: 1010px; 
 }
 
 .header {
@@ -240,59 +251,53 @@
 				background-color: lightblue;
 			}
 
-			.my-button{
+	.hurricane input {
    	 	border-radius: 20px;
     	border: 6px solid #ff58c4;
 		text-align: center;
 		position:absolute; top:850px; left:230px;
-    	padding: 80px 300px;
+    	padding: 80px 380px;
    	 	background-image: url('../static/H-Ian.jpg');
 		background-repeat: no-repeat;
    	 	font-size: 2em;
     	cursor: pointer;
 	}
 
-	.my-button:hover {
-		border: 6px solid lightblue;
+	.hurricane input :hover {
+				background-color: lightblue;
 			}
 
-			.my-button1{
+	.brazil input {
    	 	border-radius: 20px;
     	border: 6px solid #ff58c4;
 		text-align: center; 
-		position:absolute; top:1100px; left:230px;
-		size: 80px 300px;
-    	padding: 80px 300px;
+		position:absolute; top:1100px; left:230px; 
+    	padding: 80px 370px;
 		background-image: url('../static/brazil-fire.jpg');
 		background-repeat: no-repeat;
-		background-size: inherit;
-
-		font-size: 2em;
-    	cursor: pointer;
-	}
-
-	.my-button1:hover {
-		border: 6px solid lightblue;
-			}
-
-			.my-button2{
-   	 	border-radius: 20px;
-    	border: 6px solid #ff58c4;
-		text-align: center; 
-		position:absolute; top:1350px; left:230px;
-				width:850px;
-				height: 80px;
-				padding: 80px 300px;
-
-				background-image: url('../static/waterCrisis.jpg');
-		background-repeat: no-repeat;
-		background-size: inherit;
    	 	font-size: 2em;
     	cursor: pointer;
 	}
 
-	.my-button2:hover {
-		border: 6px solid lightblue;
+	.brazil input :hover {
+				background-color: lightblue;
+			}
+
+
+	.flint input {
+   	 	border-radius: 20px;
+    	border: 6px solid #ff58c4;
+		text-align: center; 
+		position:absolute; top:1350px; left:230px; 
+    	padding: 80px 355px;
+		background-image: url('../static/waterCrisis.jpg');
+		background-repeat: no-repeat;
+   	 	font-size: 2em;
+    	cursor: pointer;
+	}
+
+	.flint input :hover {
+				background-color: lightblue;
 			}
 
 	
@@ -301,29 +306,34 @@
 		font-weight: 400;
 	}
 
+
+
+
+
+
     </style>
   </head>
   <body>
 
     <h2>
-			<div class="topnav">
-				<ul>
-					<p onclick="window.location.href='RatRaceHomePage.html';" style="text-align:center" class="btn"><img src="../static/logo.png" id="logo1" alt="logo1" style="width:140px; height:90px"></p>
-				</ul>
-				<form method="POST" action="/volunteer" >
-					<input type="submit" name="volunteer" value = "Volunteer" />
-				</form>
-				<form method="POST" action="/charities" >
-					<input type="submit" name="charities" value = "Charities" />
-				</form>
-				<form method="POST" action="/log_in" >
-					<input type="submit" name="sign_up" value = "Sign Up" />
-				</form>
-				<form class="active" method="POST" action="/aboutUs" >
-					<input type="submit" name="about" value = "About Us" />
-				</form>
-			</div>
-		</h2>
+		<div class="topnav">
+			<ul>
+				<p onclick="window.location.href='RatRaceHomePage.html';"  class="btn"><img src="../static/logo.png" id="logo1" alt="logo1" style="width:140px; height:90px"></p>
+			</ul>
+			<form method="POST" action="/volunteer" >
+				<input type="submit" name="volunteer" value = "Volunteer" />
+			</form>
+			<form method="POST" action="/charities" >
+				<input type="submit" name="charities" value = "Charities" />
+			</form>
+			<form method="POST" action="/log_in" >
+				<input type="submit" name="log_in" value = "Log In" />
+			</form>
+			<form class="active" method="POST" action="/aboutUs" >
+				<input type="submit" name="about" value = "About Us" />
+			</form>
+		</div>
+	</h2>
 
 
 
@@ -345,11 +355,23 @@
 	<span class="empathy" style="position: absolute; left:1120px; top:600px; font-size: 60px;">  IMAPCT  </span>
 </div>
 
-<button class="my-button">Hurricane Ian: </button>
+<div class="hurricane">
+<form class="active" method="POST" action="/hurricane" >
+	<input type="submit" name="hurricane" value = "Hurricane Ian" />
+</form>
+</div>
 
-<button class="my-button1">Brazil Wildfires: </button>
+<div class="brazil">
+	<form class="active" method="POST" action="/brazil" >
+		<input type="submit" name="brazil" value = "Brazil Wildfires" />
+	</form>
+	</div>
 
-<button class="my-button2">Flint, Water Crisis: </button>
+	<div class="flint">
+		<form class="active" method="POST" action="/flint" >
+			<input type="submit" name="flint" value = "Flint, Michigan Water Crisis" />
+		</form>
+		</div>
 
 <br>
 <br>
