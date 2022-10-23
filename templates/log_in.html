@@ -3,20 +3,20 @@
     <link rel="stylesheet" href="../static/style.css" />
   </head>
   <body>
-    <h1>Log In</h1>
+    <h1 class="log-text">Log In</h1>
     <p>Please enter a user name and password.</p>
     <form method="POST" action="/log_in">
-      <p>
+      <p class="text-log">
         Username: 
-      <input type="text" name="user_name" />
+      <input class="log-input" type="text" name="user_name" />
       <br>
-      Password:  <input type="text" name="password" />
+      Password:  <input class="log-input" type="text" name="password" />
       <br>
-      <input class="button" type="submit" value="Login" />
+      <input class="log-button" type="submit" value="Login" />
       </p>
     </form>
     <form method = "POST" action="/sign_up">
-      <p>
+      <p class="text-log">
         Need an account?
         <input class="small-button" type="submit" name="log_in" value="Create Account" />
             </p>
