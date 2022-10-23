@@ -255,14 +255,17 @@
 			}
 
 	.hurricane input {
+		display: block;
    	 	border-radius: 20px;
     	border: 6px solid #ff58c4;
 		text-align: center;
-		position:absolute; top:850px; left:230px;
+		margin: 50px auto 0 auto;
     	padding: 80px 380px;
    	 	background-image: url('../static/H-Ian.jpg');
 		background-repeat: no-repeat;
    	 	font-size: 2em;
+		color: white; 
+
     	cursor: pointer;
 	}
 
@@ -274,13 +277,14 @@
    	 	border-radius: 20px;
     	border: 6px solid #ff58c4;
 		text-align: center; 
-		position:absolute; top:1100px; left:230px; 
-    	padding: 80px 370px;
+		margin: 50px auto 0 auto;
+    	padding: 80px 380px;
 		background-image: url('../static/brazil-fire.jpg');
 		background-repeat: no-repeat;
-		background-size: inherit;
+		background-size: 100%;
    	 	font-size: 2em;
     	cursor: pointer;
+		color: white; 
 	}
 
 	.brazil input :hover {
@@ -292,13 +296,14 @@
    	 	border-radius: 20px;
     	border: 6px solid #ff58c4;
 		text-align: center; 
-		position:absolute; top:1350px; left:230px; 
-    	padding: 80px 355px;
-		background-image: url('../static/waterCrisis.jpg');
+		margin: 50px auto 0 auto; 
+    	padding: 80px 300px;
+		background-image: url('../static/flint.jpeg');
 		background-repeat: no-repeat;
-		background-size: inherit;
+		background-size: 100%;
    	 	font-size: 2em;
     	cursor: pointer;
+		color: white; 
 	}
 
 	.flint input :hover {
@@ -312,8 +317,7 @@
 	}
 
 	.bigThree {
-		margin-top: 50px;
-		margin-bottom: 500px; 
+		margin-top: 50px; 
 		margin-left: 20px;
 		margin-right: 20px;  
 	}
@@ -326,7 +330,7 @@
     <h2>
 		<div class="topnav">
 			<ul>
-				<p onclick="window.location.href='RatRaceHomePage.html';"  class="btn"><img src="../static/logo.png" id="logo1" alt="logo1" style="width:140px; height:90px"></p>
+				<p onclick="window.location.href='RatRaceHomePage.html';"  class="btn"><img src="../static/logo.png" id="logo1" alt="logo1" style="width:110px; height:90px"></p>
 			</ul>
 			<form method="POST" action="/volunteer" >
 				<input type="submit" name="volunteer" value = "Volunteer" />
@@ -334,7 +338,7 @@
 			<form method="POST" action="/charities" >
 				<input type="submit" name="charities" value = "Charities" />
 			</form>
-			<form method="POST" action="/log_in" >
+			<form method="GET" action="/log_in" >
 				<input type="submit" name="log_in" value = "Log In" />
 			</form>
 			<form class="active" method="POST" action="/aboutUs" >
