@@ -15,7 +15,7 @@ from flask_login import (
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from dotenv import find_dotenv, load_dotenv
-#from passlib.hash import sha256_crypt
+from passlib.hash import sha256_crypt
 
 app = flask.Flask(__name__)
 
@@ -27,11 +27,11 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 # Gets rid of a warning
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-# # loop in order to change the config variables for the heroku app to access the database
+# loop in order to change the config variables for the heroku app to access the database
 if app.config["SQLALCHEMY_DATABASE_URI"].startswith("postgres://"):
-     app.config["SQLALCHEMY_DATABASE_URI"] = app.config[
-         "SQLALCHEMY_DATABASE_URI"
-     ].replace("postgres://", "postgresql://")
+    app.config["SQLALCHEMY_DATABASE_URI"] = app.config[
+        "SQLALCHEMY_DATABASE_URI"
+    ].replace("postgres://", "postgresql://")
 
 # initializing the database
 db = SQLAlchemy(app)
@@ -62,6 +62,7 @@ def load_user(user_id):
 
 
 # creating the database
+
 with app.app_context():
       db.create_all()
 
