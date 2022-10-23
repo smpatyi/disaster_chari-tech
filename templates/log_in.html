@@ -3,9 +3,16 @@
     <link rel="stylesheet" href="../static/style.css" />
   </head>
   <body>
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <ul class="flashes">
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %} {% block body %}{% endblock %}
     <h1 class="text-log">Log In</h1>
     <p class="text-log" >Please enter a user name and password.</p>
-    <form method="POST" action="/log_in">
+    <form method="POST" action="/logged_in">
       <p class="text-log">
         Username: 
       <input class="log-input" type="text" name="user_name" />
@@ -15,18 +22,11 @@
       <input class="log-button" type="submit" value="Login" />
       </p>
     </form>
-    <form method = "POST" action="/sign_up">
+    <form method = "GET" action="/sign_up">
       <p class="text-log">
         Need an account?
         <input class="small-button" type="submit" name="log_in" value="Create Account" />
             </p>
     </form>
-    {% with messages = get_flashed_messages() %} {% if messages %}
-    <ul class="flashes">
-      {% for message in messages %}
-      <li>{{ message }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %} {% endwith %} {% block body %}{% endblock %}
   </body>
 </html>
