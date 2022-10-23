@@ -24,9 +24,16 @@
     {% with messages = get_flashed_messages() %} {% if messages %}
     <ul class="flashes">
       {% for message in messages %}
-      <b>{{message}}</b>
+      <li>{{ message }}</li>
       {% endfor %}
     </ul>
-    {% endif %} {% endwith %}
+    {% endif %} {% endwith %} {% block body %}{% endblock %}
+    <h1>This is the login page.</h1>
+    <p>Please enter a user name and password.</p>
+    <form method="POST" action="/logged_in">
+      <input type="text" name="user_name" placeholder="Username" />
+      <input type="text" name="password" placeholder="Password" />
+      <input type="submit" class="buttons" value="Login" />
+    </form>
   </body>
 </html>
