@@ -14,7 +14,7 @@ from flask_login import (
 from flask import Flask, flash, redirect, render_template, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import find_dotenv, load_dotenv
-from passlib.hash import sha256_crypt
+#from passlib.hash import sha256_crypt
 
 # from flask_migrate import Migrate
 
@@ -36,7 +36,7 @@ app.secret_key = os.getenv("SECRET_KEY")
 #     ].replace("postgres://", "postgresql://")
 
 # initializing the database
-db = SQLAlchemy(app)
+#db = SQLAlchemy(app)
 
 # using flask login in order to manage the users logging in to the site
 login_manager = LoginManager()
@@ -45,16 +45,16 @@ login_manager.login_view = "index"
 
 
 # data model for users
-class UserLogin(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    user = db.Column(db.String(20), nullable=False)
-    password = db.Column(db.String(20), nullable=False)
+# class UserLogin(db.Model, UserMixin):
+#     id = db.Column(db.Integer, primary_key=True)
+#     user = db.Column(db.String(20), nullable=False)
+#     password = db.Column(db.String(20), nullable=False)
 
-    def __repr__(self):
-        return "<User %r>" % self.user
+#     def __repr__(self):
+#         return "<User %r>" % self.user
 
-    def get_username(self):
-        return self.user
+#     def get_username(self):
+#         return self.user
 
 
 # uses login manager to help handle user input
@@ -193,6 +193,9 @@ def brazil():
 def flint():
     return flask.render_template("flint.html")
 
+@app.route("/charityOne", methods=["GET", "POST"])
+def charityOne():
+    return flask.render_template("charityOne.html")
 
 @login_manager.user_loader
 def get_user(user_id):
