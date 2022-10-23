@@ -13,9 +13,13 @@ body {
 }
 
 .backPage {
-    background-color: #fcf6f8;
+    background-color: rgb(241, 231, 214);
     margin-left: 100px;
     margin-right: 100px;
+    color: rgb(59, 37, 168); 
+    text-align: center;
+    font-family: "Verdana";
+    font-weight: 80;
 }
   
 .block {
@@ -77,11 +81,11 @@ body {
 
 #item:hover #highlight{
     /* hardcoded */
-    width: 500px; 
+    width: 930px; 
 }
 #item:hover #highlight1{
     /* hardcoded */
-    width: 500px; 
+    width: 930px; 
 }
 
 .header {
@@ -209,12 +213,6 @@ html {
     height: 300px;
 }
 
-div {
-    background-color: none;
-}
-
-h3,
-h4,
 h5 {
     font-family: "Lato", sans-serif;
     font-weight: 100;
@@ -326,3 +324,20 @@ h5 {
     margin-left: 20px;
     margin-right: 20px;  
 }
+
+#piechart {
+    margin-left: 350px; 
+}
+
+.checked {
+    color: orange;
+  }
+
+
+
+
+
+
+
+
+  
