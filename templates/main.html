@@ -13,57 +13,68 @@
 				background-attachment: fixed;
 				background-repeat: no-repeat;
 				background-size: 100% 100%;
-				backdrop-filter: blur(4px);
+				backdrop-filter: blur(2px);
 				min-height: 500px;
 			}
       
       .block {
+		justify-content: center;
   height: 50vh;
   width: 100vw;
   display: flex;
-  justify-content: center;
   align-items: center;
+
 }
 
 #item {
+	display:block;
+	margin: auto;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
   font-size: 30px;
   font-family: 'BioRhyme', serif;
-  width: initial;
   height: 40px;
   line-height: 40px;
 }
 
 
 #highlight {
-  display: inline-block;
-  position:absolute; left:195px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	position: absolute;
   z-index: -1;
   background-color: #ff58c4;
+  opacity: 75%;
   height: 100px; 
-  width: 0vh;
   transition: width 0.5s;
+  width: 0vh;
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 
 #highlight1 {
-  display: inline-block;
-  position:absolute; left:270px;
+	display: block;
+	margin-left:auto;
+	margin-right: auto;
+	position:absolute;
   z-index: -1;
   background-color: #58b1ff;
+  opacity: 75%;
   height: 50px; 
-  width: 0vh;
   transition: width 0.5s;
+  width: 0vh;
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 #item:hover #highlight{
   /* hardcoded */
-  width: 1050px; 
+  width: 1010px; 
 }
 #item:hover #highlight1{
   /* hardcoded */
-  width: 880px; 
+  width: 1010px; 
 }
 
 .header {
@@ -305,7 +316,7 @@
     <h2>
 		<div class="topnav">
 			<ul>
-				<p onclick="window.location.href='RatRaceHomePage.html';" style="text-align:center" class="btn"><img src="../static/logo.png" id="logo1" alt="logo1" style="width:140px; height:90px"></p>
+				<p onclick="window.location.href='RatRaceHomePage.html';"  class="btn"><img src="../static/logo.png" id="logo1" alt="logo1" style="width:140px; height:90px"></p>
 			</ul>
 			<form method="POST" action="/volunteer" >
 				<input type="submit" name="volunteer" value = "Volunteer" />
