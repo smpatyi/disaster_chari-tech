@@ -14,7 +14,7 @@ body {
   
 .block {
     justify-content: center;
-    height: 50vh;
+    height: 25vh;
     width: 100vw;
     display: flex;
     align-items: center;
@@ -22,14 +22,14 @@ body {
 
 #item {
     display:block;
-    margin: auto;
+    margin: 10px auto 0px auto;
     align-items: center;
     align-content: center;
     justify-content: center;
     font-size: 30px;
     font-family: 'Lato', serif;
     font-weight: lighter;
-    height: 40px;
+    
     line-height: 40px;
     letter-spacing: 1px;
     text-shadow: 1px 1px #ff58c4;
@@ -310,7 +310,8 @@ h5 {
 
 .bigThree {
     font-size: 60px;
-    margin-top: 50px; 
+    margin-top: 0vh; 
+    margin-bottom: 10vh;
     margin-left: 20px;
     margin-right: 20px;  
 }
