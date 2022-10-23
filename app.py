@@ -21,7 +21,6 @@ app = flask.Flask(__name__)
 
 load_dotenv(find_dotenv())
 
-app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 app.secret_key = os.getenv("SECRET_KEY")
 # pointing flask app towards heroku database
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
@@ -45,14 +44,14 @@ login_manager.login_view = "main"
 
 # data model for users
 class UserLogin(db.Model, UserMixin):
-     id = db.Column(db.Integer, primary_key=True)
-     user = db.Column(db.String(20), nullable=False)
-     password = db.Column(db.String(20), nullable=False)
+    id = db.Column(db.Integer, primary_key=True)
+    user = db.Column(db.String(20), nullable=False)
+    password = db.Column(db.String(200), nullable=False)
 
-     def __repr__(self):
-         return "<User %r>" % self.user
+    def __repr__(self):
+        return "<User %r>" % self.user
 
-     def get_username(self):
+    def get_username(self):
         return self.user
 
 
