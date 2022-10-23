@@ -71,7 +71,7 @@ with app.app_context():
 @app.route("/", methods=["GET"])
 def index():
     return flask.render_template(
-        "index.html",
+        "main.html",
     )
 
 
@@ -90,10 +90,11 @@ def welcome():
 # displays log in page with input forms
 @app.route("/log_in", methods=["GET"])
 def log_in():
-
     return flask.render_template(
         "log_in.html",
     )
+
+
 
 
 @app.route("/logged_in", methods=["GET", "POST"])
@@ -164,9 +165,29 @@ def signed_up():
                 return flask.redirect(flask.url_for("log_in"))
 
 
-@app.route("/main", methods=["GET"])
-def main():
-    return flask.render_template("main.html")
+@app.route("/volunteer", methods=["GET", "POST"])
+def volunteer():
+    return flask.render_template("Volunteer.html")
+
+@app.route("/charities", methods=["GET", "POST"])
+def charities():
+    return flask.render_template("charities.html")
+
+@app.route("/aboutUs", methods=["GET", "POST"])
+def about():
+    return flask.render_template("aboutUs.html")
+
+@app.route("/hurricane", methods=["GET", "POST"])
+def hurricane():
+    return flask.render_template("hurricane.html")
+
+@app.route("/brazil", methods=["GET", "POST"])
+def brazil():
+    return flask.render_template("brazil.html")
+
+@app.route("/flint", methods=["GET", "POST"])
+def flint():
+    return flask.render_template("flint.html")
 
 
 @login_manager.user_loader
