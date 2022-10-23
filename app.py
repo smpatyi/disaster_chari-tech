@@ -15,7 +15,7 @@ from flask_login import (
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from dotenv import find_dotenv, load_dotenv
-from passlib.hash import sha256_crypt
+#from passlib.hash import sha256_crypt
 
 app = flask.Flask(__name__)
 
@@ -27,11 +27,11 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 # Gets rid of a warning
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-# loop in order to change the config variables for the heroku app to access the database
+# # loop in order to change the config variables for the heroku app to access the database
 if app.config["SQLALCHEMY_DATABASE_URI"].startswith("postgres://"):
-    app.config["SQLALCHEMY_DATABASE_URI"] = app.config[
-        "SQLALCHEMY_DATABASE_URI"
-    ].replace("postgres://", "postgresql://")
+     app.config["SQLALCHEMY_DATABASE_URI"] = app.config[
+         "SQLALCHEMY_DATABASE_URI"
+     ].replace("postgres://", "postgresql://")
 
 # initializing the database
 db = SQLAlchemy(app)
@@ -48,11 +48,11 @@ class UserLogin(db.Model, UserMixin):
      user = db.Column(db.String(20), nullable=False)
      password = db.Column(db.String(200), nullable=False)
 
-     def __repr__(self):
-         return "<User %r>" % self.user
+      def __repr__(self):
+          return "<User %r>" % self.user
 
-     def get_username(self):
-        return self.user
+      def get_username(self):
+         return self.user
 
 
 # uses login manager to help handle user input
@@ -63,7 +63,7 @@ def load_user(user_id):
 
 # creating the database
 with app.app_context():
-     db.create_all()
+      db.create_all()
 
 # app route for the main page that is what is seen first when app is opened
 @app.route("/", methods=["GET"])
@@ -93,9 +93,6 @@ def log_in():
     )
 
 
-
-#attempting to increase overflow possibility
-engine = create_engine(os.getenv("DATABASE_URL"), pool_size=10, max_overflow=-1)
 
 @app.route("/logged_in", methods=["GET", "POST"])
 def logged_in():
