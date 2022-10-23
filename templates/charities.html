@@ -7,15 +7,15 @@
 <h2>
     <div class="topnav">
         <ul>
-            <p onclick="window.location.href='main.html';" style="text-align:center" class="btn"><img src="../static/logo.png" id="logo1" alt="logo1" style="width:140px; height:90px"></p>
+            <p onclick="window.location.href='main.html';" style="text-align:center" class="btn"><img src="../static/logo.png" id="logo1" alt="logo1" style="width:100px; height:100px"></p>
         </ul>
-        <form method="POST" action="/volunteer" >
+        <form method="GET" action="/volunteer" >
             <input type="submit" name="volunteer" value = "Volunteer" />
         </form>
-        <form method="POST" action="/charities" >
+        <form method="GET" action="/charities" >
             <input type="submit" name="charities" value = "Charities" />
         </form>
-        <form method="POST" action="/log_in" >
+        <form method="GET" action="/log_in" >
             <input type="submit" name="log_in" value = "Log In" />
         </form>
         <form class="active" method="POST" action="/aboutUs" >
@@ -31,7 +31,7 @@
 <div class="block">
     <div id="item">
       <div id="highlight"></div>
-      <h1>Charities</h1>
+      <h1 class="title">Charities</h1>
       <div id="highlight1"></div>
       <h6>Search for a Charity, or browse below!</h6>
     </div>
@@ -42,7 +42,6 @@
     <div class="search-container">
       <form action="/action_page.php">
         <input type="text" placeholder="Search for a Charity..." name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
       </form>
     </div>
   </div>

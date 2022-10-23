@@ -3,9 +3,13 @@ body {
     background-color: #cccccc;
     color:aliceblue;
     text-align: center;
-    margin: 80px;
+    margin-top: 30px;
     font-family: "Lato", sans-serif;
     letter-spacing: 1px;
+}
+
+.block {
+    height: 10px;
 }
 
 .text-log {
