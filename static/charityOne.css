@@ -11,6 +11,12 @@ body {
     background-size: 100% 100%;
     min-height: 500px;
 }
+
+.backPage {
+    background-color: #fcf6f8;
+    margin-left: 100px;
+    margin-right: 100px;
+}
   
 .block {
     justify-content: center;
@@ -71,11 +77,11 @@ body {
 
 #item:hover #highlight{
     /* hardcoded */
-    width: 885px; 
+    width: 500px; 
 }
 #item:hover #highlight1{
     /* hardcoded */
-    width: 885px; 
+    width: 500px; 
 }
 
 .header {
@@ -223,6 +229,11 @@ h5 {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+}
+
+
+.title {
+    color: grey;
 }
 
 .button {
