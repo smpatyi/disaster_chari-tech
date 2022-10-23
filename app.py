@@ -3,6 +3,7 @@ import os
 import re
 
 from os import getenv
+from flask import Flask, flash, redirect, render_template, request, url_for
 from flask_login import (
     LoginManager,
     UserMixin,
@@ -11,8 +12,8 @@ from flask_login import (
     logout_user,
     current_user,
 )
-from flask import Flask, flash, redirect, render_template, request, url_for
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import create_engine
 from dotenv import find_dotenv, load_dotenv
 from passlib.hash import sha256_crypt
 
@@ -20,7 +21,7 @@ app = flask.Flask(__name__)
 
 load_dotenv(find_dotenv())
 
-app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+#app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 app.secret_key = os.getenv("SECRET_KEY")
 # pointing flask app towards heroku database
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
@@ -39,14 +40,14 @@ db = SQLAlchemy(app)
 # using flask login in order to manage the users logging in to the site
 login_manager = LoginManager()
 login_manager.init_app(app)
-login_manager.login_view = "index"
+login_manager.login_view = "main"
 
 
 # data model for users
 class UserLogin(db.Model, UserMixin):
      id = db.Column(db.Integer, primary_key=True)
      user = db.Column(db.String(20), nullable=False)
-     password = db.Column(db.String(20), nullable=False)
+     password = db.Column(db.String(200), nullable=False)
 
      def __repr__(self):
          return "<User %r>" % self.user
@@ -94,6 +95,8 @@ def log_in():
 
 
 
+#attempting to increase overflow possibility
+engine = create_engine(os.getenv("DATABASE_URL"), pool_size=10, max_overflow=-1)
 
 @app.route("/logged_in", methods=["GET", "POST"])
 def logged_in():
@@ -148,11 +151,14 @@ def signed_up():
 
         # check if it is a unique username that already exists in database
         if "user_name" in data:
-            user = UserLogin.query.filter_by(user=data["user_name"]).first()
+            username_input = flask.request.form.get("user_name")
+            user = UserLogin.query.filter_by(user=username_input).first()
             if user is None:
+                password_input = flask.request.form.get("password")
+                password_encrypted = sha256_crypt.encrypt(password_input)
                 new_user = UserLogin(
-                    user=data["user_name"],
-                    password=data["password"],
+                    user=username_input,
+                    password=password_encrypted,
                 )
                 db.session.add(new_user)
                 db.session.commit()
@@ -191,9 +197,12 @@ def flint():
 def charityOne():
     return flask.render_template("charityOne.html")
 
-@login_manager.user_loader
-def get_user(user_id):
-    return UserLogin.query.get(int(user_id))
+# handles logic to log user out of app
+@app.route("/logout", methods=["GET", "POST"])
+@login_required
+def logout():
+    logout_user()
+    return flask.redirect("/")
 
 
 app.run(
