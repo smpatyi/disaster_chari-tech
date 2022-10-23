@@ -110,6 +110,7 @@ button.button {
     font-family: "Lato", sans-serif;
     font-weight: 200;
     margin: 0;
+    height:100px;
     padding: 0;
     white-space: nowrap;
     overflow: auto;
@@ -165,6 +166,10 @@ button.button {
     position: absolute; left: 0px; 
     float: left;
     top: 0px;
+}
+
+#logo1:hover {
+    border:none;
 }
 
 html {

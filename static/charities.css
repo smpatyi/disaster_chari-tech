@@ -100,6 +100,7 @@ button.button {
     list-style: none;
     font-family: "Lato", sans-serif;
     font-weight: 200;
+    height: 100px;
     margin: 0;
     padding: 0;
     white-space: nowrap;
@@ -157,6 +158,10 @@ button.button {
     position: absolute; left: 0px; 
     float: left;
     top: 0px;
+}
+
+#logo1:hover {
+    border:none;
 }
 
 html {
