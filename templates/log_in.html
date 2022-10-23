@@ -1,18 +1,25 @@
 <html>
   <head>
-    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="../static/style.css" />
   </head>
   <body>
-    <h1>This is the login page.</h1>
+    <h1>Log In</h1>
     <p>Please enter a user name and password.</p>
     <form method="POST" action="/log_in">
       <p>
         Username: 
       <input type="text" name="user_name" />
       <br>
-      Password: <input type="text" name="password" />
-      <input type="submit" value="Login" />
+      Password:  <input type="text" name="password" />
+      <br>
+      <input class="button" type="submit" value="Login" />
       </p>
+    </form>
+    <form method = "POST" action="/sign_up">
+      <p>
+        Need an account?
+        <input class="small-button" type="submit" name="log_in" value="Create Account" />
+            </p>
     </form>
     {% with messages = get_flashed_messages() %} {% if messages %}
     <ul class="flashes">
