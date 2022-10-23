@@ -3,6 +3,26 @@
     <link rel="stylesheet" href="../static/style.css" />
   </head>
   <body>
+    <link rel="stylesheet" href="../static/charities.css" />
+    <h2>
+      <div class="topnav">
+          <ul>
+              <p onclick="window.location.href='main.html';" style="text-align:center" class="btn"><img src="../static/logo.png" id="logo1" alt="logo1" style="width:100px; height:100px"></p>
+          </ul>
+          <form method="GET" action="/volunteer" >
+              <input type="submit" name="volunteer" value = "Volunteer" />
+          </form>
+          <form method="GET" action="/charities" >
+              <input type="submit" name="charities" value = "Charities" />
+          </form>
+          <form method="GET" action="/log_in" >
+              <input type="submit" name="log_in" value = "Log In" />
+          </form>
+          <form class="active" method="POST" action="/aboutUs" >
+              <input type="submit" name="about" value = "About Us" />
+          </form>
+      </div>
+  </h2>
     {% with messages = get_flashed_messages() %} {% if messages %}
     <ul class="flashes">
       {% for message in messages %}
@@ -10,6 +30,8 @@
       {% endfor %}
     </ul>
     {% endif %} {% endwith %}
+    <br>
+    <br>
     <h1 class="text-sign">Sign Up</h1>
     <p class="text-sign" >Please enter a user name and password.</p>
     <form method="POST" action="/signed_up">
