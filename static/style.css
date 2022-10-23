@@ -1,36 +1,63 @@
 body {
-    background-image: url("templates/cool-background.png");
+    background-image: url("../static/cool-background.png");
     background-color: #cccccc;
     color:aliceblue;
     text-align: center;
     margin: 80px;
-    font-family: BioRhyme;
-    text-emphasis-color: cyan;
+    font-family: "Lato", sans-serif;
+    letter-spacing: 1px;
 }
 
-input {
-    border-radius: 2px;
-    border: deeppink;
+.text-log {
+    text-shadow: -1px -1px #ff58c4;
+    margin: 10px;
+}
+
+.text-sign {
+    text-shadow: -1px -1px #58b1ff;
+    margin: 10px;
+}
+
+.log-input {
+    border-radius: 3px;
+    border-color: #ff58c4;
     font-size: large;
     margin: 10px;
-
 }
 
-.button {
-    font-family: BioRhyme;
+.sign-input {
+    border-radius: 3px;
+    border-color: #58b1ff;
+    font-size: large;
+    margin: 10px;
+}
+
+.log-button {
     font-size: large;
     padding: 10px 25px 10px 25px;
     border-radius: 5px;
-    background-color: deeppink;
+    border:none;
+    background-color: #ff58c4;
+    color: white;
+    margin-top: 10px;
+}
+
+.sign-button {
+    font-size: large;
+    padding: 10px 25px 10px 25px;
+    margin-top: 10px;
+    border:none;
+    border-radius: 5px;
+    background-color: #58b1ff;
     color: white;
 }
 
 .small-button {
-    font-family: BioRhyme;
     margin-top: 30px;
+    border:none;
     padding: 3px 5px 3px 5px;
     border-radius: 5px;
-    background-color: deeppink;
+    background-color: #ff58c4;
     color:white;
     font-size: smaller;
 }

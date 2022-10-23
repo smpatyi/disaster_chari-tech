@@ -1,8 +1,19 @@
 <html>
   <head>
-    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="../static/style.css" />
   </head>
   <body>
+    <h1 class="text-sign">Sign Up</h1>
+    <p class="text-sign" >Please enter a user name and password.</p>
+    <form method="POST" action="/sign_up">
+      Username: 
+      <input class="sign-input" type="text" name="user_name" />
+      <br>
+      Password:  
+      <input class="sign-input" type="text" name="password" />
+      <br>
+      <input class="sign-button" type="submit" value="Sign Up" />
+    </form>
     {% with messages = get_flashed_messages() %} {% if messages %}
     <ul class="flashes">
       {% for message in messages %}
@@ -10,12 +21,5 @@
       {% endfor %}
     </ul>
     {% endif %} {% endwith %}
-    <h1>This is the sign up page.</h1>
-    <p>Please enter a user name and password.</p>
-    <form method="POST" action="/signed_up">
-      <input type="text" name="user_name" />
-      <input type="text" name="password" />
-      <input type="submit" value="Sign Up" />
-    </form>
   </body>
 </html>
