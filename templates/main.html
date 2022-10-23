@@ -240,7 +240,7 @@
 				background-color: lightblue;
 			}
 
-			.my-button{
+	.hurricane input {
    	 	border-radius: 20px;
     	border: 6px solid #ff58c4;
 		text-align: center;
@@ -252,11 +252,11 @@
     	cursor: pointer;
 	}
 
-	.my-button:hover {
+	.hurricane input :hover {
 				background-color: lightblue;
 			}
 
-			.my-button1{
+	.brazil input {
    	 	border-radius: 20px;
     	border: 6px solid #ff58c4;
 		text-align: center; 
@@ -268,12 +268,12 @@
     	cursor: pointer;
 	}
 
-	.my-button1:hover {
+	.brazil input :hover {
 				background-color: lightblue;
 			}
 
 
-			.my-button2{
+	.flint input {
    	 	border-radius: 20px;
     	border: 6px solid #ff58c4;
 		text-align: center; 
@@ -285,7 +285,7 @@
     	cursor: pointer;
 	}
 
-	.my-button2:hover {
+	.flint input :hover {
 				background-color: lightblue;
 			}
 
@@ -344,11 +344,23 @@
 	<span class="empathy" style="position: absolute; left:1120px; top:600px; font-size: 60px;">  IMAPCT  </span>
 </div>
 
-<button class="my-button">Hurricane Ian: </button>
+<div class="hurricane">
+<form class="active" method="POST" action="/hurricane" >
+	<input type="submit" name="hurricane" value = "Hurricane Ian" />
+</form>
+</div>
 
-<button class="my-button1">Brazil Wildfires: </button>
+<div class="brazil">
+	<form class="active" method="POST" action="/brazil" >
+		<input type="submit" name="brazil" value = "Brazil Wildfires" />
+	</form>
+	</div>
 
-<button class="my-button2">Flint, Water Crisis: </button>
+	<div class="flint">
+		<form class="active" method="POST" action="/flint" >
+			<input type="submit" name="flint" value = "Flint, Michigan Water Crisis" />
+		</form>
+		</div>
 
 <br>
 <br>
