@@ -21,7 +21,6 @@ app = flask.Flask(__name__)
 
 load_dotenv(find_dotenv())
 
-#app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 app.secret_key = os.getenv("SECRET_KEY")
 # pointing flask app towards heroku database
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
