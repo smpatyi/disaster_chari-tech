@@ -66,11 +66,11 @@ transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 
 #item:hover #highlight{
 /* hardcoded */
-width: 1300px; 
+width: 400px; 
 }
 #item:hover #highlight1{
 /* hardcoded */
-width: 1370px; 
+width: 430px; 
 }
 
 .header {
@@ -253,7 +253,7 @@ width: 1370px;
     border-radius: 20px;
     border: 6px solid #ff58c4;
     text-align: center;
-    margin: 60px auto 0 auto;
+    margin: 50px auto 0 auto;
     padding: 50px 300px;
     background-color: bisque;
     background-repeat: no-repeat;
@@ -309,8 +309,17 @@ width: 1370px;
     font-weight: 400;
 }
 
-mark {
-    background-color: #ff58c4; 
-    color: white; 
-}
+
+.searchBar input[type=text] {
+    margin: 0 auto 0 auto; 
+    padding: 12px;
+    border: none;
+    font-size: 17px;
+    text-align: center;
+    width: 500px; 
+  }
+
+
+
+ 
 
