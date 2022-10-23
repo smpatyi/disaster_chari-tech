@@ -13,7 +13,6 @@ from flask_login import (
     current_user,
 )
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import create_engine
 from dotenv import find_dotenv, load_dotenv
 from passlib.hash import sha256_crypt
 
@@ -62,7 +61,6 @@ def load_user(user_id):
 
 
 # creating the database
-
 with app.app_context():
       db.create_all()
 
