@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="../static/style.css" />
   </head>
   <body>
-    <h1>This is the sign up page.</h1>
+    <h1 class="text-sign">Sign Up</h1>
     <p class="text-sign" >Please enter a user name and password.</p>
     <form method="POST" action="/sign_up">
       Username: 
@@ -21,12 +21,5 @@
       {% endfor %}
     </ul>
     {% endif %} {% endwith %}
-    <h1>This is the sign up page.</h1>
-    <p>Please enter a user name and password.</p>
-    <form method="POST" action="/signed_up">
-      <input type="text" name="user_name" />
-      <input type="text" name="password" />
-      <input type="submit" value="Sign Up" />
-    </form>
   </body>
 </html>

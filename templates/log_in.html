@@ -3,8 +3,8 @@
     <link rel="stylesheet" href="../static/style.css" />
   </head>
   <body>
-    <h1 class="log-text">Log In</h1>
-    <p>Please enter a user name and password.</p>
+    <h1 class="text-log">Log In</h1>
+    <p class="text-log" >Please enter a user name and password.</p>
     <form method="POST" action="/log_in">
       <p class="text-log">
         Username: 
@@ -28,23 +28,5 @@
       {% endfor %}
     </ul>
     {% endif %} {% endwith %} {% block body %}{% endblock %}
-    <h1>Log In</h1>
-    <p>Please enter a user name and password.</p>
-    <form method="POST" action="/logged_in">
-      <p>
-        Username: 
-      <input type="text" name="user_name" />
-      <br>
-      Password:  <input type="text" name="password" />
-      <br>
-      <input class="button" type="submit" value="Login" />
-      </p>
-    </form>
-    <form method = "GET" action="/sign_up">
-      <p>
-        Need an account?
-        <input class="small-button" type="submit" name="log_in" value="Create Account" />
-            </p>
-    </form>
   </body>
 </html>
