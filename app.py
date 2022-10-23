@@ -67,8 +67,10 @@ with app.app_context():
       db.create_all()
 
 # app route for the main page that is what is seen first when app is opened
-@app.route("/", methods=["GET"])
+@app.route("/", methods=["GET", "POST"])
 def main():
+    if flask.request.method == "POST":
+        return flask.redirect(flask.url_for("main"))
     return flask.render_template(
         "main.html",
     )
