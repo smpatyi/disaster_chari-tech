@@ -39,7 +39,57 @@
 </div>
 
 <div class = "backPage"> 
-<h3>About the Charity:</h3>
+<br>
+<h1>About the Charity:</h1>
+<h4 style="margin-left: 30px; margin-right: 30px;">"United Way of Charlotte County brings together local agencies, corporations, donors, volunteers, and government to create lasting social change.  Our work and our investments stay right here, supporting thousands of people every year. We strategically invest in, partner with, and mobilize local community partners to solve the most complex social issues."</h4>
+
+<h4 style="font-size: 20px; color: black;"><b>Rated 3 out of 5 Stars for "Accountability and Transparency" by past donors:</b></h4>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+<br>
+<br>
+<img src="../static/united.png" alt="Chari-tech logo" style="width:400px;height:250px;">
+<br>
+<br>
+<br>
+<br>
+<div id="piechart"></div>
+<br>
+<br>
+<br>
+<br>
 </div>
+
   </body>
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <script type="text/javascript">
+	// Load google charts
+	google.charts.load('current', {'packages':['corechart']});
+	google.charts.setOnLoadCallback(drawChart);
+	
+	// Draw the chart and set the chart values
+	function drawChart() {
+	  var data = google.visualization.arrayToDataTable([
+	  ['Category', 'Percentage of Funds Allocated'],
+	  ['Home Reconstruction', 60],
+	  ['Food Security', 20],
+	  ['Education', 10],
+	  ['Other', 10],
+	]);
+	
+	  // Optional; add a title and set the width and height of the chart
+	  var options = {'title':'Allocation of Donations and Funds (Annually)', 'width':550, 'height':400};
+	
+	  // Display the chart inside the <div> element with id="piechart"
+	  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+	  chart.draw(data, options);
+	}
+	</script>
 </html>
