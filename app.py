@@ -25,15 +25,15 @@ load_dotenv(find_dotenv())
 # app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 app.secret_key = os.getenv("SECRET_KEY")
 # pointing flask app towards heroku database
-app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
+#app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 # Gets rid of a warning
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+#app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 # loop in order to change the config variables for the heroku app to access the database
-if app.config["SQLALCHEMY_DATABASE_URI"].startswith("postgres://"):
-    app.config["SQLALCHEMY_DATABASE_URI"] = app.config[
-        "SQLALCHEMY_DATABASE_URI"
-    ].replace("postgres://", "postgresql://")
+# if app.config["SQLALCHEMY_DATABASE_URI"].startswith("postgres://"):
+#     app.config["SQLALCHEMY_DATABASE_URI"] = app.config[
+#         "SQLALCHEMY_DATABASE_URI"
+#     ].replace("postgres://", "postgresql://")
 
 # initializing the database
 db = SQLAlchemy(app)
@@ -64,14 +64,14 @@ def load_user(user_id):
 
 
 # creating the database
-with app.app_context():
-    db.create_all()
+# with app.app_context():
+#     db.create_all()
 
 # app route for the main page that is what is seen first when app is opened
 @app.route("/", methods=["GET"])
 def index():
     return flask.render_template(
-        "index.html",
+        "main.html",
     )
 
 
@@ -90,10 +90,11 @@ def welcome():
 # displays log in page with input forms
 @app.route("/log_in", methods=["GET"])
 def log_in():
-
     return flask.render_template(
         "log_in.html",
     )
+
+
 
 
 @app.route("/logged_in", methods=["GET", "POST"])
@@ -167,6 +168,30 @@ def signed_up():
 @app.route("/main", methods=["GET"])
 def main():
     return flask.render_template("main.html")
+
+@app.route("/volunteer", methods=["GET", "POST"])
+def volunteer():
+    return flask.render_template("Volunteer.html")
+
+@app.route("/charities", methods=["GET", "POST"])
+def charities():
+    return flask.render_template("charities.html")
+
+@app.route("/aboutUs", methods=["GET", "POST"])
+def about():
+    return flask.render_template("aboutUs.html")
+
+@app.route("/hurricane", methods=["GET", "POST"])
+def hurricane():
+    return flask.render_template("hurricane.html")
+
+@app.route("/brazil", methods=["GET", "POST"])
+def brazil():
+    return flask.render_template("brazil.html")
+
+@app.route("/flint", methods=["GET", "POST"])
+def flint():
+    return flask.render_template("flint.html")
 
 
 @login_manager.user_loader

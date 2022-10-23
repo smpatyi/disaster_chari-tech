@@ -1,68 +1,79 @@
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
       body {
         overflow:scroll; 
 				margin: 0;
 				font-family: "Lato", sans-serif;
-        color:aliceblue; 
-        text-align: center;
+				color:aliceblue; 
+				text-align: center;
 				font-weight: 100;
-				background-image: url('cool-background.png');
+				background-image: url("../static/cool-background.png");
 				background-attachment: fixed;
 				background-repeat: no-repeat;
 				background-size: 100% 100%;
-				backdrop-filter: blur(4px);
 				min-height: 500px;
 			}
       
       .block {
+		justify-content: center;
   height: 50vh;
   width: 100vw;
   display: flex;
-  justify-content: center;
   align-items: center;
+
 }
 
 #item {
+	display:block;
+	margin: auto;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
   font-size: 30px;
   font-family: 'BioRhyme', serif;
-  width: initial;
   height: 40px;
   line-height: 40px;
 }
 
 
 #highlight {
-  display: inline-block;
-  position:absolute; left:195px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	position: absolute;
   z-index: -1;
   background-color: #ff58c4;
+  opacity: 75%;
   height: 100px; 
-  width: 0vh;
   transition: width 0.5s;
+  width: 0vh;
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+
 #highlight1 {
-  display: inline-block;
-  position:absolute; left:270px;
+	display: block;
+	margin-left:auto;
+	margin-right: auto;
+	position:absolute;
   z-index: -1;
   background-color: #58b1ff;
+  opacity: 75%;
   height: 50px; 
-  width: 0vh;
   transition: width 0.5s;
+  width: 0vh;
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 #item:hover #highlight{
   /* hardcoded */
-  width: 1050px; 
+  width: 1010px; 
 }
 #item:hover #highlight1{
   /* hardcoded */
-  width: 880px; 
+  width: 1010px; 
 }
 
 .header {
@@ -115,8 +126,23 @@
 
 			}
 
+			.topnav input {
+				background: none;
+				border: none;
+				float: right;
+				color: #fcf6f8;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+				font-size: 17px;
+				transition: 300ms ease;
+				font-family: "Lato", sans-serif;
+				margin: 0;
+				letter-spacing: 3px;
 
-			.topnav a:hover {
+			}
+
+			.topnav input:hover {
 				color: white;
 				border-radius: 30px;
 				border: white solid 2px;
@@ -225,8 +251,69 @@
 				background-color: lightblue;
 			}
 
+	.hurricane input {
+		display: block;
+   	 	border-radius: 20px;
+    	border: 6px solid #ff58c4;
+		text-align: center;
+		margin: 50px auto 0 auto;
+    	padding: 80px 380px;
+   	 	background-image: url('../static/H-Ian.jpg');
+		background-repeat: no-repeat;
+   	 	font-size: 2em;
+    	cursor: pointer;
+	}
+
+	.hurricane input :hover {
+		border: 6px solid lightblue;
+			}
+
+	.brazil input {
+   	 	border-radius: 20px;
+    	border: 6px solid #ff58c4;
+		text-align: center; 
+		margin: 50px auto 0 auto;
+    	padding: 80px 370px;
+		background-image: url('../static/brazil-fire.jpg');
+		background-repeat: no-repeat;
+		background-size: inherit;
+   	 	font-size: 2em;
+    	cursor: pointer;
+	}
+
+	.brazil input :hover {
+		border: 6px solid lightblue;
+			}
 
 
+	.flint input {
+   	 	border-radius: 20px;
+    	border: 6px solid #ff58c4;
+		text-align: center; 
+		margin: 50px auto 0 auto; 
+    	padding: 80px 355px;
+		background-image: url('../static/waterCrisis.jpg');
+		background-repeat: no-repeat;
+		background-size: inherit;
+   	 	font-size: 2em;
+    	cursor: pointer;
+	}
+
+	.flint input :hover {
+		border: 6px solid lightblue;
+			}
+
+	
+	.empathy {
+		background-color: #58b1ff;
+		font-weight: 400;
+	}
+
+	.bigThree {
+		margin-top: 50px; 
+		margin-left: 20px;
+		margin-right: 20px;  
+	}
 
 
     </style>
@@ -234,16 +321,24 @@
   <body>
 
     <h2>
-			<div class="topnav">
-				<ul>
-					<p onclick="window.location.href='RatRaceHomePage.html';" style="text-align:center" class="btn"><img src="logo.png" id="logo1" alt="logo1" style="width:140px; height:90px"></p>
-				</ul>
-				<a href="about.html">Volunteer</a>
-				<a href="resources.html">Charities</a>
-				<a href="game.html">Login</a>
-				<a class="active" href="RatRaceHomePage.html">About Us</a>
-			</div>
-		</h2>
+		<div class="topnav">
+			<ul>
+				<p onclick="window.location.href='RatRaceHomePage.html';"  class="btn"><img src="../static/logo.png" id="logo1" alt="logo1" style="width:110px; height:90px"></p>
+			</ul>
+			<form method="POST" action="/volunteer" >
+				<input type="submit" name="volunteer" value = "Volunteer" />
+			</form>
+			<form method="POST" action="/charities" >
+				<input type="submit" name="charities" value = "Charities" />
+			</form>
+			<form method="POST" action="/log_in" >
+				<input type="submit" name="log_in" value = "Log In" />
+			</form>
+			<form class="active" method="POST" action="/aboutUs" >
+				<input type="submit" name="about" value = "About Us" />
+			</form>
+		</div>
+	</h2>
 
 
 
@@ -257,5 +352,40 @@
     <h6>The one-stop shop for supporting charities for people struck by disaster.</h6>
   </div>
 </div>
+
+<div class="bigThree">
+	<br>
+	<span class="empathy" style="font-size: 60px;">  EMPATHY - </span>
+	<span class="empathy"style="font-size: 60px;">  TRANSPARENCY - </span>
+	<span class="empathy" style="font-size: 60px;">  IMAPCT  </span>
+</div>
+
+<div class="hurricane">
+<form class="active" method="POST" action="/hurricane" >
+	<input type="submit" name="hurricane" value = "Hurricane Ian" />
+</form>
+</div>
+
+<div class="brazil">
+	<form class="active" method="POST" action="/brazil" >
+		<input type="submit" name="brazil" value = "Brazil Wildfires" />
+	</form>
+	</div>
+
+	<div class="flint">
+		<form class="active" method="POST" action="/flint" >
+			<input type="submit" name="flint" value = "Flint, Michigan Water Crisis" />
+		</form>
+		</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
   </body>
 </html>
