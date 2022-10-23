@@ -28,12 +28,23 @@
       {% endfor %}
     </ul>
     {% endif %} {% endwith %} {% block body %}{% endblock %}
-    <h1>This is the login page.</h1>
+    <h1>Log In</h1>
     <p>Please enter a user name and password.</p>
     <form method="POST" action="/logged_in">
-      <input type="text" name="user_name" placeholder="Username" />
-      <input type="text" name="password" placeholder="Password" />
-      <input type="submit" class="buttons" value="Login" />
+      <p>
+        Username: 
+      <input type="text" name="user_name" />
+      <br>
+      Password:  <input type="text" name="password" />
+      <br>
+      <input class="button" type="submit" value="Login" />
+      </p>
+    </form>
+    <form method = "GET" action="/sign_up">
+      <p>
+        Need an account?
+        <input class="small-button" type="submit" name="log_in" value="Create Account" />
+            </p>
     </form>
   </body>
 </html>
