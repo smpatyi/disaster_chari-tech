@@ -166,6 +166,18 @@ def charities():
 def about():
     return flask.render_template("aboutUs.html")
 
+@app.route("/hurricane", methods=["GET", "POST"])
+def hurricane():
+    return flask.render_template("hurricane.html")
+
+@app.route("/brazil", methods=["GET", "POST"])
+def brazil():
+    return flask.render_template("brazil.html")
+
+@app.route("/flint", methods=["GET", "POST"])
+def flint():
+    return flask.render_template("flint.html")
+
 
 @login_manager.user_loader
 def get_user(user_id):

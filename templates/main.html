@@ -9,11 +9,10 @@
 				color:aliceblue; 
 				text-align: center;
 				font-weight: 100;
-				background-image: url("../static/cool-background.jpg");
+				background-image: url("../static/cool-background.png");
 				background-attachment: fixed;
 				background-repeat: no-repeat;
 				background-size: 100% 100%;
-				backdrop-filter: blur(2px);
 				min-height: 500px;
 			}
       
@@ -252,49 +251,52 @@
 				background-color: lightblue;
 			}
 
-			.my-button{
+	.hurricane input {
    	 	border-radius: 20px;
     	border: 6px solid #ff58c4;
-		text-align: center; 
-		position:absolute; top:850px; left:230px; 
+		text-align: center;
+		position:absolute; top:850px; left:230px;
     	padding: 80px 380px;
-   	 	background: #f3f0e0;
+   	 	background-image: url('../static/H-Ian.jpg');
+		background-repeat: no-repeat;
    	 	font-size: 2em;
     	cursor: pointer;
 	}
 
-	.my-button:hover {
+	.hurricane input :hover {
 				background-color: lightblue;
 			}
 
-			.my-button1{
+	.brazil input {
    	 	border-radius: 20px;
     	border: 6px solid #ff58c4;
 		text-align: center; 
 		position:absolute; top:1100px; left:230px; 
     	padding: 80px 370px;
-   	 	background: #f3f0e0;
+		background-image: url('../static/brazil-fire.jpg');
+		background-repeat: no-repeat;
    	 	font-size: 2em;
     	cursor: pointer;
 	}
 
-	.my-button1:hover {
+	.brazil input :hover {
 				background-color: lightblue;
 			}
 
 
-			.my-button2{
+	.flint input {
    	 	border-radius: 20px;
     	border: 6px solid #ff58c4;
 		text-align: center; 
 		position:absolute; top:1350px; left:230px; 
     	padding: 80px 355px;
-   	 	background: #f3f0e0;
+		background-image: url('../static/waterCrisis.jpg');
+		background-repeat: no-repeat;
    	 	font-size: 2em;
     	cursor: pointer;
 	}
 
-	.my-button2:hover {
+	.flint input :hover {
 				background-color: lightblue;
 			}
 
@@ -353,11 +355,23 @@
 	<span class="empathy" style="position: absolute; left:1120px; top:600px; font-size: 60px;">  IMAPCT  </span>
 </div>
 
-<button class="my-button">Hurricane Ian: </button>
+<div class="hurricane">
+<form class="active" method="POST" action="/hurricane" >
+	<input type="submit" name="hurricane" value = "Hurricane Ian" />
+</form>
+</div>
 
-<button class="my-button1">Brazil Wildfires: </button>
+<div class="brazil">
+	<form class="active" method="POST" action="/brazil" >
+		<input type="submit" name="brazil" value = "Brazil Wildfires" />
+	</form>
+	</div>
 
-<button class="my-button2">Flint, Water Crisis: </button>
+	<div class="flint">
+		<form class="active" method="POST" action="/flint" >
+			<input type="submit" name="flint" value = "Flint, Michigan Water Crisis" />
+		</form>
+		</div>
 
 <br>
 <br>
