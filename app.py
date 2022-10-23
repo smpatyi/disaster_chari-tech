@@ -62,7 +62,6 @@ def load_user(user_id):
 
 
 # creating the database
-
 with app.app_context():
       db.create_all()
 
