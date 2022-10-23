@@ -68,15 +68,15 @@ class UserLogin(db.Model, UserMixin):
         return self.user
 
 class UserLogin(db.Model, UserMixin):
-     id = db.Column(db.Integer, primary_key=True)
-     user = db.Column(db.String(20), nullable=False)
-     password = db.Column(db.String(200), nullable=False)
+    id = db.Column(db.Integer, primary_key=True)
+    user = db.Column(db.String(20), nullable=False)
+    password = db.Column(db.String(200), nullable=False)
 
-     def __repr__(self):
-          return "<User %r>" % self.user
+    def __repr__(self):
+        return "<User %r>" % self.user
 
-     def get_username(self):
-         return self.user
+    def get_username(self):
+        return self.user
 
 
 # uses login manager to help handle user input
